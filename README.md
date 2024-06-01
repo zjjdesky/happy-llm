@@ -44,13 +44,13 @@
       - （3）针对下游任务微调
     - 3.1.2 RoBERTa
     - 3.1.3 ALBERT
-    - 3.1.4 XLNet
   - 3.2 Encoder-Decoder PLM 志学
     - 3.2.1 T5
       - （1）模型架构：Encoder-Decoder
       - （2）预训练任务
       - （3）大一统思想
     - 3.2.2 BART
+    - 3.2.3 XLNet
   - 3.3 Decoder-Only PLM
     - 3.3.1 GPT
       - （1）模型架构：Decoder Only
