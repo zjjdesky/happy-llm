@@ -2,7 +2,7 @@
 
 ## 大纲
 
-### 第一章 NLP 基础概念 志学
+### 第一章 NLP 基础概念 志学 Done
   - 1.1 什么是 NLP
   - 1.2 NLP 发展历程
   - 1.3 NLP 任务
@@ -21,8 +21,8 @@
     - 1.4.3 Word2Vec
     - 1.4.4 ELMo
 
-### 第二章 基础架构-Transformer 雨衡
-  - 2.1 注意力机制
+### 第二章 基础架构-Transformer 雨衡 Done
+  - 2.1 注意力机制 
     - 2.1.1 注意力机制详解
     - 2.1.2 自注意力与多头注意力
     - 2.1.3 注意力掩码与因果注意力
@@ -37,14 +37,14 @@
     - 2.3.4 Transformer 中的其他结构
 
 ### 第三章 预训练语言模型 
-  - 3.1 Encoder-Only PLM 雨衡
+  - 3.1 Encoder-Only PLM 雨衡 Done
     - 3.1.1 BERT
       - （1）模型架构：Encoder Only
       - （2）预训练任务
       - （3）针对下游任务微调
     - 3.1.2 RoBERTa
     - 3.1.3 ALBERT
-  - 3.2 Encoder-Decoder PLM 志学
+  - 3.2 Encoder-Decoder PLM 志学 
     - 3.2.1 T5
       - （1）模型架构：Encoder-Decoder
       - （2）预训练任务
@@ -72,8 +72,8 @@
       - （1）模型架构：MoE
       - （2）MoE 架构的核心优势
      
-### 第四章 大语言模型 雨衡
-  - 4.1 什么是 LLM Done
+### 第四章 大语言模型 雨衡 Done
+  - 4.1 什么是 LLM 
     - 4.1.1 LLM 的定义
     - 4.1.2 LLM 的能力
     - 4.1.3 LLM 的特点
@@ -83,7 +83,7 @@
     - 4.2.3 RLHF
 
 ### 第五章 预训练一个 LLM 志学
-  - 5.1 模型架构-LLaMA
+  - 5.1 模型架构-LLaMA Done
     - 5.1.1 LLaMA Attention
     - 5.1.2 LLaMA Decoder Layer
     - 5.1.3 LLaMA MLP
