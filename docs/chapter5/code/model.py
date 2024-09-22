@@ -1,20 +1,8 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-'''
-@File    :   llama2_model.py
-@Time    :   2024/04/14 22:26:35
-@Author  :   不要葱姜蒜
-@Version :   1.0
-@Desc    :   部分代码借鉴llama2.c仓库代码
-'''
-
 import math
 import struct
 import inspect
 from dataclasses import dataclass
 from typing import Any, Optional, Tuple
-
-import numpy as np
 import torch
 import torch.nn.functional as F
 from torch import nn
@@ -35,7 +23,7 @@ class ModelArgs:
     dropout: float = 0.0  # 丢弃率
 
 
-class LLaMA2RMSNorm(nn.Module):
+class RMSNorm(nn.Module):
     def __init__(self, dim: int, eps: float):
         super().__init__()
         # eps是为了防止除以0的情况
@@ -128,7 +116,7 @@ def repeat_kv(x: torch.Tensor, n_rep: int) -> torch.Tensor:
         .reshape(bs, slen, n_kv_heads * n_rep, head_dim)  # 重新塑形，合并键/值对头的数量和重复次数的维度
     )
 
-class LLaMA2Attention(nn.Module):
+class Attention(nn.Module):
     def __init__(self, args: ModelArgs):
         super().__init__()
         # 根据是否指定n_kv_heads，确定用于键（key）和值（value）的头的数量。
@@ -215,7 +203,7 @@ class LLaMA2Attention(nn.Module):
         output = self.resid_dropout(output)
         return output
 
-class LLaMA2MLP(nn.Module):
+class MLP(nn.Module):
     def __init__(self, dim: int, hidden_dim: int, multiple_of: int, dropout: float):
         super().__init__()
         # 如果没有指定隐藏层的维度，我们将其设置为输入维度的4倍
@@ -241,7 +229,7 @@ class LLaMA2MLP(nn.Module):
         return self.dropout(self.w2(F.silu(self.w1(x)) * self.w3(x)))
     
 
-class LLaMA2DecoderLayer(nn.Module):
+class DecoderLayer(nn.Module):
     def __init__(self, layer_id: int, args: ModelArgs):
         super().__init__()
         # 定义多头注意力的头数
@@ -251,9 +239,9 @@ class LLaMA2DecoderLayer(nn.Module):
         # 定义每个头的维度，等于输入维度除以头数
         self.head_dim = args.dim // args.n_heads
         # 定义LLaMA2Attention对象，用于进行多头注意力计算
-        self.attention = LLaMA2Attention(args)
+        self.attention = Attention(args)
         # 定义LLaMAMLP对象，用于进行前馈神经网络计算
-        self.feed_forward = LLaMA2MLP(
+        self.feed_forward = MLP(
             dim=args.dim,
             hidden_dim=args.hidden_dim,
             multiple_of=args.multiple_of,
@@ -262,9 +250,9 @@ class LLaMA2DecoderLayer(nn.Module):
         # 定义层的ID
         self.layer_id = layer_id
         # 定义注意力计算的归一化层
-        self.attention_norm = LLaMA2RMSNorm(args.dim, eps=args.norm_eps)
+        self.attention_norm = RMSNorm(args.dim, eps=args.norm_eps)
         # 定义前馈神经网络计算的归一化层
-        self.ffn_norm = LLaMA2RMSNorm(args.dim, eps=args.norm_eps)
+        self.ffn_norm = RMSNorm(args.dim, eps=args.norm_eps)
 
     def forward(self, x, freqs_cos, freqs_sin):
         # 前向传播函数
@@ -274,7 +262,7 @@ class LLaMA2DecoderLayer(nn.Module):
         out = h + self.feed_forward.forward(self.ffn_norm(h))
         return out
 
-class LLaMA2Model(nn.Module):
+class Transformer(nn.Module):
     last_loss: Optional[torch.Tensor]
 
     def __init__(self, args: ModelArgs):
@@ -293,9 +281,9 @@ class LLaMA2Model(nn.Module):
         # Decoder层
         self.layers = torch.nn.ModuleList()
         for layer_id in range(args.n_layers):
-            self.layers.append(LLaMA2DecoderLayer(layer_id, args))
+            self.layers.append(DecoderLayer(layer_id, args))
         # 归一化层
-        self.norm = LLaMA2RMSNorm(args.dim, eps=args.norm_eps)
+        self.norm = RMSNorm(args.dim, eps=args.norm_eps)
         # 输出层
         self.output = nn.Linear(args.dim, args.vocab_size, bias=False)
 
@@ -383,6 +371,7 @@ class LLaMA2Model(nn.Module):
     def estimate_mfu(self, fwdbwd_per_iter, dt):
         """ 估计模型的 FLOPs 利用率 (MFU) 单位：A100 bfloat16 的峰值 FLOPS """
         # 计算每次迭代的 FLOPs 数量（参考 PaLM 论文的附录 B）
+        # PaLM: Scaling Language Modeling with Pathways: https://arxiv.org/abs/2204.02311
         N = sum(p.numel() for p in self.parameters())
         cfg = self.args
         L, H, Q, T = cfg.n_layers, cfg.n_heads, cfg.dim//cfg.n_heads, cfg.max_seq_len
@@ -432,7 +421,7 @@ if __name__ == '__main__':
     # LLaMA2Model.forward 接受两个参数，tokens和targets，其中tokens是输入的张量, 应为int类型
     x = torch.randint(0, 32000, (1, 50)) # [bs, seq_len]
     # 实例化LLaMA2Model
-    model = LLaMA2Model(args=args)
+    model = Transformer(args=args)
     # 计算model的全部参数
     num_params = sum(p.numel() for p in model.parameters())
     print('Number of parameters:', num_params)
