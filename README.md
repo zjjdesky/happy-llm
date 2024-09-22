@@ -82,25 +82,26 @@
     - 4.2.2 SFT
     - 4.2.3 RLHF
 
-### 第五章 预训练一个 LLM 志学
+### 第五章 预训练一个 LLM 志学 Done
   - 5.1 模型架构-LLaMA Done
     - 5.1.1 LLaMA Attention
     - 5.1.2 LLaMA Decoder Layer
     - 5.1.3 LLaMA MLP
     - 5.1.4 LLaMA RMSNorm
     - 5.1.5 A Whole LLaMA
-  - 5.2 预训练数据
-    - 5.2.1 预训练数据集
-    - 5.2.2 预训练数据处理
-  - 5.3 训练 Tokenizer
-    - 5.3.1 Word-based Tokenizer
-    - 5.3.2 Character-based Tokenzier
-    - 5.3.3 Subword Tokenizer
+  - 5.2 训练 Tokenizer
+    - 5.2.1 Word-based Tokenizer
+    - 5.2.2 Character-based Tokenzier
+    - 5.2.3 Subword Tokenizer
       - （1）BPE
       - （2）Word Piece
       - （3）Unigram
-    - 5.3.4 训练一个 Tokenizer
-  - 5.4 预训练
+    - 5.2.4 训练一个 Tokenizer
+  - 5.3 训练一个小型LLM
+    - 5.3.1 训练Tokenizer
+    - 5.3.2 数据预处理
+    - 5.3.3 训练模型
+    - 5.3.4 使用模型生成文本
 
 ### 第六章 微调 LLM
   - 6.1 微调数据
