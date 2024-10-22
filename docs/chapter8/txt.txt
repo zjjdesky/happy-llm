@@ -1,58 +1,303 @@
-### 大模型评测：理解与意义
+# TinyRAG
 
-近年来，随着人工智能领域的迅猛发展，大规模预训练模型（简称大模型）成为了推动技术进步的核心力量。这些大模型在自然语言处理等任务中展现出了令人惊叹的能力。然而，要准确衡量一个大模型的性能，必须依靠科学而合理的评测。本文将从以下四个方面展开讨论：大模型评测的定义、为什么要进行评测、主流的大模型评测集以及现有的主流评测榜单。
+接下来我会带领大家一步一步实现一个简单的RAG模型，这个模型是基于RAG的一个简化版本，我们称之为Tiny-RAG。Tiny-RAG只包含了RAG的核心功能，即检索和生成，其目的是帮助大家更好地理解RAG模型的原理和实现。
 
-#### 大模型评测的定义
+OK，让我们开始吧！
 
-大模型评测就是通过各种标准化的方法和数据集，对大模型在不同任务上的表现进行量化和比较。这些评测不仅包括模型在特定任务上的准确性，还涉及模型的泛化能力、推理速度、资源消耗等多个方面。通过评测，我们能够更全面地了解大模型的实际表现，以及它们在现实世界中的应用潜力。
+## 1. RAG 介绍
 
-#### 为什么要进行大模型评测
+大型语言模型会产生误导性的“幻觉”，依赖的信息可能过时，处理特定知识时效率不高，缺乏专业领域的深度洞察，同时在推理能力上也有所欠缺。
 
-大模型的开发成本高昂，涉及大量的计算资源和数据，因此评测对于确保模型的实际价值至关重要。首先，评测能够揭示模型在各种任务中的表现，帮助研究人员和企业判断模型的适用性和可靠性。其次，评测可以暴露模型的潜在弱点，例如偏见、鲁棒性问题等，从而为进一步优化和改进提供依据。此外，公平、公开的评测还为学术界和工业界提供了一个共同的标准，促进了技术的交流与进步。
+正是在这样的背景下，检索增强生成技术（Retrieval-Augmented Generation，RAG）应时而生，成为AI时代的一大趋势。
 
-#### 主流的大模型评测集有哪些
+RAG通过在语言模型生成答案之前，先从广泛的文档数据库中检索相关信息，然后利用这些信息来引导生成过程，从而极大地提升了内容的准确性和相关性。RAG有效地缓解了幻觉问题，提高了知识更新的速度，并增强了内容生成的可追溯性，使得大型语言模型在实际应用中变得更加实用和可信。
 
-在大模型的评测过程中，使用标准化的评测集至关重要。目前，主流的大模型评测集主要从以下几个方面进行评估，每个评测集都有其独特的用途和典型应用场景：
+RAG的基本结构有哪些呢？
 
-1. **通用评测集**：
-   - **MMLU（Massive Multitask Language Understanding）**：MMLU评测模型在多种任务中的理解能力，包括各类学科和知识领域。具体包含了历史、数学、物理、生物、法律等任务类型，全面考察模型在不同学科的知识储备和语言理解能力。
-   - **Open-rewrite eval**：评测模型在零样本和多样本条件下的文本重写能力，主要用于判断模型在不借助大量训练数据的情况下对语言表达进行改写的质量，如句子重构、语义简化等。
-   - **TLDR9**：用于测试模型在生成摘要方面的能力，尤其是处理简洁文本的表现，应用场景包括新闻摘要生成和社交媒体内容提炼，帮助模型高效地从冗长文本中提取关键信息。
+- 向量化模块：用来将文档片段向量化。
+- 文档加载和切分模块：用来加载文档并切分成文档片段。
+- 数据库：存放文档片段及其对应的向量表示。
+- 检索模块：根据Query（问题）检索相关的文档片段。
+- 大模型模块：根据检索到的文档回答用户的问题。
 
-2. **工具使用评测集**：
-   - **BFCL V2**：用于评测模型在复杂工具使用任务中的表现，特别是在执行多步骤操作时的正确性和效率。这些任务通常涉及与数据库交互或执行特定指令，以模拟实际工具使用场景。
-   - **Nexus**：用于测试模型在多步骤操作中的工具使用能力，主要评估其在多任务操作中的协调性和任务管理能力，如进行文件操作、数据整合等复杂流程。
+上述这些也就是TinyRAG仓库的所有模块内容。
 
-3. **数学评测集**：
-   - **GSM8K**：GSM8K是一个包含小学数学问题的数据集，用于测试模型的数学推理和逻辑分析能力。具体任务包括算术运算、简单方程求解、数字推理等。GSM8K中的问题虽然看似简单，但模型需要理解问题语义并进行正确的数学运算，体现了逻辑推理和语言理解的双重挑战。
-   - **MATH**：MATH数据集用于测试模型在更复杂的数学问题上的表现，包括代数和几何。
+![](../images/Retrieval-Augmented%20Generation%EF%BC%88RAG-Learning%EF%BC%89.png)
 
-4. **推理评测集**：
-   - **ARC Challenge**：ARC Challenge评测模型在科学推理任务中的表现，尤其是常识性和科学性问题的解答，典型应用场景包括科学考试题解答和百科问答系统的开发。
-   - **GPQA**：用于评测模型在零样本条件下对开放性问题的回答能力，通常应用于客服聊天机器人和知识问答系统中，帮助模型在缺乏特定领域数据的情况下给出合理的回答。
-   - **HellaSwag**：评测模型在复杂语境下选择最符合逻辑的答案的能力，适用于故事续写、对话生成等需要高水平理解和推理的场景。
+接下来，让我们梳理一下RAG的流程是什么样的呢？
 
-5. **长文本理解评测集**：
-   - **InfiniteBench/En.MC**：评测模型在处理长文本阅读理解方面的能力，尤其是对科学文献的理解，适用于学术文献自动摘要、长篇报道分析等应用场景。
-   - **NIH/Multi-needle**：用于测试模型在多样本长文档环境中的理解和总结能力，应用于政府报告解读、企业内部长文档分析等需要处理海量信息的场景。
+- **索引**：将文档库分割成较短的片段，并通过编码器构建向量索引。
+- **检索**：根据问题和片段的相似度检索相关文档片段。
+- **生成**：以检索到的上下文为条件，生成问题的回答。
 
-6. **多语言评测集**：
-   - **MGSM**：用于评估模型在不同语言下的数学问题解决能力，考察模型的多语言适应性，尤其适用于国际化环境中的数学教育和跨语言技术支持场景。
+如下图所示的流程，图片出处 ***[Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/pdf/2312.10997.pdf)***
 
-这些评测集的多样性帮助我们全面评估大模型在不同任务和应用场景中的表现，确保模型在处理多样化任务时能够保持高效和精准的表现。例如，在ARC Challenge中，GPT-4取得了80%以上的准确率，证明其在科学性和常识性推理中的卓越能力；在GSM8K数学评测中，某些模型已接近人类平均水平，尤其是在算术和方程求解方面表现出色。这些实际评测结果展示了模型在各类复杂任务中的进步和应用潜力。
+![](../images/RAG.png)
 
-#### 主流评测榜单有哪些
+## 2. 向量化
 
-大模型的评测不仅限于使用特定的数据集，许多机构还会根据评测结果发布模型排行榜，这些榜单为学术界和工业界提供了重要的参考，帮助他们了解当前最前沿的技术和模型。以下是一些主流的评测榜单：
+首先我们来动手实现一个向量化的类，这是RAG架构的基础。向量化的类主要用来将文档片段向量化，将一段文本映射为一个向量。
 
-1. **Papers with Code**：这是一个知名的开放平台，汇总了各类AI任务的模型排名。通过"SOTA"（state-of-the-art）榜单，用户可以快速了解某一领域中表现最优的模型。
-2. **OpenAI Evals**：OpenAI推出了一个用于评测大模型表现的框架，提供了一系列的测试工具和结果，用于评估模型的能力和局限性。
-3. **HELM（Holistic Evaluation of Language Models）**：由斯坦福大学推出的一个大模型评测框架，综合考量模型的公平性、效率、鲁棒性等多个维度，是目前学术界广泛参考的榜单之一。
+首先我们要设置一个 `Embedding` 基类，这样我们在使用其他模型时，只需要继承这个基类，然后在此基础上进行修改即可，方便代码扩展。
 
-这些榜单不仅展示了各类模型的性能，也为模型的优化和改进提供了方向。
+```python
+class BaseEmbeddings:
+    """
+    Base class for embeddings
+    """
+    def __init__(self, path: str, is_api: bool) -> None:
+        self.path = path
+        self.is_api = is_api
+    
+    def get_embedding(self, text: str, model: str) -> List[float]:
+        raise NotImplementedError
+    
+    @classmethod
+    def cosine_similarity(cls, vector1: List[float], vector2: List[float]) -> float:
+        """
+        calculate cosine similarity between two vectors
+        """
+        dot_product = np.dot(vector1, vector2)
+        magnitude = np.linalg.norm(vector1) * np.linalg.norm(vector2)
+        if not magnitude:
+            return 0
+        return dot_product / magnitude
+```
 
-### 结语
+`BaseEmbeddings`基类有两个主要方法：`get_embedding`和`cosine_similarity`。`get_embedding`用于获取文本的向量表示，`cosine_similarity`用于计算两个向量之间的余弦相似度。在初始化类时设置了模型的路径和是否是API模型，例如使用OpenAI的Embedding API需要设置`self.is_api=True`。
 
-大模型评测是确保大规模预训练模型有效性的重要手段，能够帮助研究人员和应用开发者全面理解模型的优势和劣势。通过使用多样化的评测集和关注主流的评测榜单，我们能够更好地推动大模型技术的发展和应用。随着大模型技术的不断进步，评测的标准和工具也在不断演进，以应对日益复杂的应用需求。
+继承`BaseEmbeddings`类只需要实现`get_embedding`方法，`cosine_similarity`方法会被继承下来。这就是编写基类的好处。
 
-大模型的未来充满了无限可能，而评测正是引领我们走向这一未来的指南针。通过持续评测和改进，我们有望创造出更加智能、更加高效的大模型，为社会的各个方面带来变革性的影响。
+```python
+class OpenAIEmbedding(BaseEmbeddings):
+    """
+    class for OpenAI embeddings
+    """
+    def __init__(self, path: str = '', is_api: bool = True) -> None:
+        super().__init__(path, is_api)
+        if self.is_api:
+            from openai import OpenAI
+            self.client = OpenAI()
+            self.client.api_key = os.getenv("OPENAI_API_KEY")
+            self.client.base_url = os.getenv("OPENAI_BASE_URL")
+    
+    def get_embedding(self, text: str, model: str = "text-embedding-3-large") -> List[float]:
+        if self.is_api:
+            text = text.replace("\n", " ")
+            return self.client.embeddings.create(input=[text], model=model).data[0].embedding
+        else:
+            raise NotImplementedError
+```
+
+## 3. 文档加载和切分
+
+接下来我们来实现一个文档加载和切分的类，这个类主要用于加载文档并将其切分成文档片段。
+
+文档可以是文章、书籍、对话、代码等文本内容，例如pdf文件、md文件、txt文件等。完整代码可以在 ***[RAG/utils.py](../RAG/utils.py)*** 文件中找到。该代码支持加载pdf、md、txt等类型的文件，只需编写相应的函数即可。
+
+```python
+def read_file_content(cls, file_path: str):
+    # 根据文件扩展名选择读取方法
+    if file_path.endswith('.pdf'):
+        return cls.read_pdf(file_path)
+    elif file_path.endswith('.md'):
+        return cls.read_markdown(file_path)
+    elif file_path.endswith('.txt'):
+        return cls.read_text(file_path)
+    else:
+        raise ValueError("Unsupported file type")
+```
+
+文档读取后需要进行切分。我们可以设置一个最大的Token长度，然后根据这个最大长度来切分文档。切分文档时最好以句子为单位（按`\n`粗切分），并保证片段之间有一些重叠内容，以提高检索的准确性。
+
+```python
+def get_chunk(cls, text: str, max_token_len: int = 600, cover_content: int = 150):
+    chunk_text = []
+
+    curr_len = 0
+    curr_chunk = ''
+
+    lines = text.split('\n')
+
+    for line in lines:
+        line = line.replace(' ', '')
+        line_len = len(enc.encode(line))
+        if line_len > max_token_len:
+            print('warning line_len = ', line_len)
+        if curr_len + line_len <= max_token_len:
+            curr_chunk += line
+            curr_chunk += '\n'
+            curr_len += line_len
+            curr_len += 1
+        else:
+            chunk_text.append(curr_chunk)
+            curr_chunk = curr_chunk[-cover_content:] + line
+            curr_len = line_len + cover_content
+
+    if curr_chunk:
+        chunk_text.append(curr_chunk)
+
+    return chunk_text
+```
+
+## 4. 数据库与向量检索
+
+完成文档切分和Embedding模型加载后，需要设计一个向量数据库来存放文档片段和对应的向量表示，以及设计一个检索模块用于根据Query检索相关文档片段。
+
+向量数据库的功能包括：
+
+- `persist`：数据库持久化保存。
+- `load_vector`：从本地加载数据库。
+- `get_vector`：获取文档的向量表示。
+- `query`：根据问题检索相关文档片段。
+
+完整代码可以在 ***[RAG/VectorBase.py](../RAG/VectorBase.py)*** 文件中找到。
+
+```python
+class VectorStore:
+    def __init__(self, document: List[str] = ['']) -> None:
+        self.document = document
+
+    def get_vector(self, EmbeddingModel: BaseEmbeddings) -> List[List[float]]:
+        # 获得文档的向量表示
+        pass
+
+    def persist(self, path: str = 'storage'):
+        # 数据库持久化保存
+        pass
+
+    def load_vector(self, path: str = 'storage'):
+        # 从本地加载数据库
+        pass
+
+    def query(self, query: str, EmbeddingModel: BaseEmbeddings, k: int = 1) -> List[str]:
+        # 根据问题检索相关文档片段
+        pass
+```
+
+`query` 方法用于将用户提出的问题向量化，然后在数据库中检索相关文档片段并返回结果。
+
+```python
+def query(self, query: str, EmbeddingModel: BaseEmbeddings, k: int = 1) -> List[str]:
+    query_vector = EmbeddingModel.get_embedding(query)
+    result = np.array([self.get_similarity(query_vector, vector) for vector in self.vectors])
+    return np.array(self.document)[result.argsort()[-k:][::-1]].tolist()
+```
+
+## 5. 大模型模块
+
+接下来是大模型模块，用于根据检索到的文档回答用户的问题。
+
+首先实现一个基类，这样可以方便扩展其他模型。
+
+```python
+class BaseModel:
+    def __init__(self, path: str = '') -> None:
+        self.path = path
+
+    def chat(self, prompt: str, history: List[dict], content: str) -> str:
+        pass
+
+    def load_model(self):
+        pass
+```
+
+`BaseModel` 包含两个方法：`chat`和`load_model`。对于本地化运行的开源模型需要实现`load_model`，而API模型则不需要。
+
+下面以 ***[InternLM2-chat-7B](https://huggingface.co/internlm/internlm2-chat-7b)*** 模型为例：
+
+```python
+class InternLMChat(BaseModel):
+    def __init__(self, path: str = '') -> None:
+        super().__init__(path)
+        self.load_model()
+
+    def chat(self, prompt: str, history: List = [], content: str='') -> str:
+        prompt = PROMPT_TEMPLATE['InternLM_PROMPT_TEMPLATE'].format(question=prompt, context=content)
+        response, history = self.model.chat(self.tokenizer, prompt, history)
+        return response
+
+    def load_model(self):
+        import torch
+        from transformers import AutoTokenizer, AutoModelForCausalLM
+        self.tokenizer = AutoTokenizer.from_pretrained(self.path, trust_remote_code=True)
+        self.model = AutoModelForCausalLM.from_pretrained(self.path, torch_dtype=torch.float16, trust_remote_code=True).cuda()
+```
+
+可以用一个字典来保存所有的prompt，方便维护：
+
+```python
+PROMPT_TEMPLATE = dict(
+    InternLM_PROMPT_TEMPLATE="""先对上下文进行内容总结,再使用上下文来回答用户的问题。如果你不知道答案，就说你不知道。总是使用中文回答。
+        问题: {question}
+        可参考的上下文：
+        ···
+        {context}
+        ···
+        如果给定的上下文无法让你做出回答，请回答数据库中没有这个内容，你不知道。
+        有用的回答:"""
+)
+```
+
+这样我们就可以利用InternLM2模型来做RAG啦！
+
+## 6.  LLM Tiny-RAG Demo
+
+接下来，我们来看看Tiny-RAG的Demo吧！
+
+```python
+from RAG.VectorBase import VectorStore
+from RAG.utils import ReadFiles
+from RAG.LLM import OpenAIChat, InternLMChat
+from RAG.Embeddings import JinaEmbedding, ZhipuEmbedding
+
+# 没有保存数据库
+docs = ReadFiles('./data').get_content(max_token_len=600, cover_content=150) # 获取data目录下的所有文件内容并分割
+vector = VectorStore(docs)
+embedding = ZhipuEmbedding() # 创建EmbeddingModel
+vector.get_vector(EmbeddingModel=embedding)
+vector.persist(path='storage') # 将向量和文档内容保存到storage目录，下次再用可以直接加载本地数据库
+
+question = 'git的原理是什么？'
+
+content = vector.query(question, model='zhipu', k=1)[0]
+chat = InternLMChat(path='model_path')
+print(chat.chat(question, [], content))
+```
+
+也可以从本地加载已处理好的数据库：
+
+```python
+from RAG.VectorBase import VectorStore
+from RAG.utils import ReadFiles
+from RAG.LLM import OpenAIChat, InternLMChat
+from RAG.Embeddings import JinaEmbedding, ZhipuEmbedding
+
+# 保存数据库之后
+vector = VectorStore()
+
+vector.load_vector('./storage') # 加载本地数据库
+
+question = 'git的原理是什么？'
+
+embedding = ZhipuEmbedding() # 创建EmbeddingModel
+
+content = vector.query(question, EmbeddingModel=embedding, k=1)[0]
+chat = InternLMChat(path='model_path')
+print(chat.chat(question, [], content))
+```
+
+## 7. 总结
+
+经过上面的学习，你是否学会了如何搭建一个最小RAG架构呢？相信你一定学会啦，哈哈哈。
+
+让我们再来复习一下，一个最小RAG应该包含哪些内容？
+
+- 向量化模块
+- 文档加载和切分模块
+- 数据库
+- 向量检索
+- 大模型模块
+
+OK，你已经学会了，但别忘了给我的项目点个star哦！
+
