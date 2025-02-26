@@ -417,7 +417,7 @@ class Transformer(PreTrainedModel):
         return idx[:, index:] # 只返回生成的token
 
 if __name__ == '__main__':
-    tokenizer = AutoTokenizer.from_pretrained("/home/user/szx/code/k-llm/tokenizer_k")
+    tokenizer = AutoTokenizer.from_pretrained("tokenizer_k")
     args = ModelConfig(
         dim=1024,
         n_layers=18,

@@ -139,7 +139,7 @@ if __name__ == "__main__":
     parser.add_argument("--dtype", type=str, default="bfloat16", help="Data type")
     parser.add_argument("--use_swanlab", type=bool, default=True, help="Use Weights & Biases")
     parser.add_argument("--num_workers", type=int, default=4, help="Number of workers for data loading")
-    parser.add_argument("--data_path", type=str, default="/home/user/szx/dataset/BelleGroup/sft.jsonl", help="Path to training data")
+    parser.add_argument("--data_path", type=str, default="", help="Path to training data")
     parser.add_argument("--accumulation_steps", type=int, default=4, help="Gradient accumulation steps")
     parser.add_argument("--grad_clip", type=float, default=1.0, help="Gradient clipping threshold")
     parser.add_argument("--warmup_iters", type=int, default=0, help="Number of warmup iterations")
@@ -160,7 +160,7 @@ if __name__ == "__main__":
             args.device = "cpu"
 
     if args.use_swanlab:
-        swanlab.login(api_key='BIYVGq2rfWmD9sFMCehUG')
+        swanlab.login(api_key='your key')
         run = swanlab.init(
             project="Tiny-LLM",
             experiment_name="BelleGropu-sft-215M",
