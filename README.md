@@ -36,15 +36,15 @@
     - 2.3.3 位置编码
     - 2.3.4 Transformer 中的其他结构
 
-### 第三章 预训练语言模型 
-  - 3.1 Encoder-Only PLM 雨衡 Done
+### 第三章 预训练语言模型 Partly Done
+  - 3.1 Encoder-Only PLM
     - 3.1.1 BERT
       - （1）模型架构：Encoder Only
       - （2）预训练任务
       - （3）针对下游任务微调
     - 3.1.2 RoBERTa
     - 3.1.3 ALBERT
-  - 3.2 Encoder-Decoder PLM 志学 
+  - 3.2 Encoder-Decoder PLM
     - 3.2.1 T5
       - （1）模型架构：Encoder-Decoder
       - （2）预训练任务
@@ -64,13 +64,6 @@
       - （1）模型架构：Prefix-Decoder
       - （2）预训练数据
       - （3）ChatGLM 的发展历程
-    - 3.3.4 BaiChuan
-    - 3.3.5 Qwen
-    - 3.3.6 Mistral
-    - 3.3.7 MiniCPM
-    - 3.3.8 Mixtral-8*7B
-      - （1）模型架构：MoE
-      - （2）MoE 架构的核心优势
      
 ### 第四章 大语言模型 雨衡 Done
   - 4.1 什么是 LLM 
@@ -103,33 +96,39 @@
     - 5.3.3 训练模型
     - 5.3.4 使用模型生成文本
 
-### 第六章 微调 LLM
-  - 6.1 微调数据
-    - 6.1.1 指令数据集
-    - 6.1.2 微调数据处理
-  - 6.2 SFT
-  - 6.3 微调其他 LLM 的通用流程
-  - 6.4 高效微调-LoRA
-    - 6.4.1 LoRA 原理（注：深入浅出 LoRA）
-    - 6.4.2 实践 LoRA 微调
-   
-### 第七章 RLHF
-  - 7.1 RM 训练
-  - 7.2 PPO 训练
-  - 7.3 RLHF 的平替版本-DPO
+### 第六章 训练 LLM
+  - 6.1 框架介绍
+    - 6.1.1 transformers
+    - 6.1.2 deepspeed
+    - 6.1.3 peft
+    - 6.1.4 trl
+  - 6.2 LLM Pretrain
+    - 6.2.1 初始化 LLM
+    - 6.2.2 预训练数据处理
+    - 6.2.3 使用 Trainer 进行预训练
+  - 6.3 LLM SFT
+    - 6.3.1 加载预训练模型
+    - 6.3.2 微调数据处理
+    - 6.3.3 使用 Trainer 进行微调
+  - 6.4 基于强化学习的偏好对齐
+    - 6.4.1 DPO 训练
+    - 6.4.2 KTO 训练
+    - 6.4.3 GRPO 训练
+  - 6.5 高效微调-LoRA
+    - 6.5.1 LoRA 原理
+    - 6.5.2 使用 peft 进行 LoRA 微调
 
-### 第八章 LLM 应用
-  - 8.1 LLM 的评测
-    - 8.1.1 LLM 的评测方法
-    - 8.1.2 主流的评测榜单
-    - 8.1.3 特定的评测榜单
-  - 8.2 Prompt Engineering（注：吴恩达课程）
-    - 8.2.1 上下文学习
-    - 8.2.2 思维链
-    - 8.2.3 Prompt 的迭代优化
-  - 8.3 RAG （注：志学-TinyRAG）
-    - 8.3.1 RAG 的基本原理
-    - 8.3.2 搭建一个 RAG 框架
-  - 8.4 Agent
-    - 8.4.1 Agent 的基本原理
-    - 8.4.2 搭建一个 Multi-Agent 框架
+### 第七章 LLM 应用
+  - 7.1 LLM 的评测
+    - 7.1.1 LLM 的评测方法
+    - 7.1.2 主流的评测榜单
+    - 7.1.3 特定的评测榜单
+  - 7.2 Prompt Engineering
+    - 7.2.1 Prompt 书写的一般技巧
+    - 7.2.2 Prompt 优化工具
+  - 7.3 RAG
+    - 7.3.1 RAG 的基本原理
+    - 7.3.2 搭建一个 RAG 框架
+  - 7.4 Agent
+    - 7.4.1 Agent 的基本原理
+    - 7.4.2 搭建一个 Multi-Agent 框架
