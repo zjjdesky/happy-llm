@@ -75,9 +75,9 @@
     - 4.2.2 SFT
     - 4.2.3 RLHF
 
-### 第五章 预训练一个 LLM 志学 Done
+### 第五章 动手搭建大模型
   - 5.1 模型架构-LLaMA Done
-    - 5.1.1 LLaMA Attention
+    - 5.1.1 LLaMA Attentœion
     - 5.1.2 LLaMA Decoder Layer
     - 5.1.3 LLaMA MLP
     - 5.1.4 LLaMA RMSNorm
@@ -118,17 +118,14 @@
     - 6.5.1 LoRA 原理
     - 6.5.2 使用 peft 进行 LoRA 微调
 
-### 第七章 LLM 应用
+### 第七章 大模型应用
   - 7.1 LLM 的评测
     - 7.1.1 LLM 的评测方法
     - 7.1.2 主流的评测榜单
     - 7.1.3 特定的评测榜单
-  - 7.2 Prompt Engineering
-    - 7.2.1 Prompt 书写的一般技巧
-    - 7.2.2 Prompt 优化工具
-  - 7.3 RAG
-    - 7.3.1 RAG 的基本原理
-    - 7.3.2 搭建一个 RAG 框架
-  - 7.4 Agent
-    - 7.4.1 Agent 的基本原理
-    - 7.4.2 搭建一个 Multi-Agent 框架
+  - 7.2 RAG
+    - 7.2.1 RAG 的基本原理
+    - 7.2.2 搭建一个 RAG 框架
+  - 7.3 Agent
+    - 7.3.1 Agent 的基本原理
+    - 7.3.2 搭建一个 Multi-Agent 框架
