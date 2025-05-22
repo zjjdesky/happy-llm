@@ -1,126 +1,46 @@
 # Happy LLM
 
-## 大纲
+很多小伙伴在看完《self-llm 开源大模型食用指南》后，感觉意犹未尽，想要深入了解大语言模型的原理和训练过程。于是我们决定推出《Happy-LLM》项目，旨在帮助大家深入理解大语言模型的原理和训练过程。
 
-### 第一章 NLP 基础概念
-- 1.1 什么是 NLP
-- 1.2 NLP 发展历程
-- 1.3 NLP 任务
-  - 1.3.1 中文分词
-  - 1.3.2 子词切分
-  - 1.3.3 词性标注
-  - 1.3.4 文本分类
-  - 1.3.5 实体识别
-  - 1.3.6 关系抽取
-  - 1.3.7 文本摘要
-  - 1.3.8 机器翻译
-  - 1.3.9 自动问答
-- 1.4 文本表示的发展历程
-  - 1.4.1 词向量
-  - 1.4.2 语言模型
-  - 1.4.3 Word2Vec
-  - 1.4.4 ELMo
+本项目是一个开源的 LLM 教程，包含了大语言模型的基本原理、训练过程和应用案例。我们将从基础知识开始，逐步深入到大语言模型的核心原理和训练过程，最后介绍一些实际应用案例。通过本项目，你将能够深入理解大语言模型的原理，并能够动手实现一个简单的大语言模型。
 
-### 第二章 Transformer 架构
-- 2.1 注意力机制
-  - 2.1.1 什么是注意力机制
-  - 2.1.2 深入理解注意力机制
-  - 2.1.3 注意力机制的实现
-  - 2.1.4 自注意力
-  - 2.1.5 掩码自注意力
-  - 2.1.6 多头注意力
-- 2.2 Encoder-Decoder
-  - 2.2.1 Seq2Seq 模型
-  - 2.2.2 前馈神经网络
-  - 2.2.3 层归一化
-  - 2.2.4 残差连接
-  - 2.2.5 Encoder
-  - 2.2.6 Decoder
-- 2.3 搭建一个 Transformer
-  - 2.3.1 Embeddng 层
-  - 2.3.2 位置编码
-  - 2.3.3 一个完整的 Transformer
+本项目内容包括：第一～二章介绍 NLP 的基本概念和大语言模型的基本原理；第三～四章介绍大模型结构及大模型训练流程；第五～六章会带领大家动手搭建一个大模型并完成模型训练；第七章介绍大模型的应用案例，如：RAG，Agent等等。我们会在每一章中提供详细的代码示例和注释，帮助大家理解每一个细节。
 
-### 第三章 预训练语言模型
+## 内容导航
 
-- 3.1 Encoder-only PLM
-  - 3.1.1 BERT
-  - 3.1.2 RoBERTa
-  - 3.1.3 ALBERT
-- 3.2 Encoder-Decoder PLM
-  - 3.2.1 T5
-- 3.3 Decoder-Only PLM
-  - 3.3.1 GPT
-  - 3.3.2 LLaMA
-  - 3.3.3 GLM
-  - 3.3.4 DeepSeek [WIP]
-     
-### 第四章 大语言模型
+| 章节                      | 关键内容                                                     |
+| ------------------------- | ------------------------------------------------------------ |
+| [第一章 NLP 基础概念](./docs/chapter1/第一章%20NLP基础概念.md)   | 什么是 NLP、NLP 发展历程、NLP 任务、文本表示的发展历程       |
+| [第二章 Transformer 架构](./docs/chapter2/第二章%20Transformer架构.md)   | 注意力机制、Encoder-Decoder、搭建一个 Transformer            |
+| 第[三章 预训练语言模型](./docs/chapter3/第三章%20预训练语言模型.md)     | Encoder-only PLM、Encoder-Decoder PLM、Decoder-Only PLM      |
+| [第四章 大语言模型](./docs/chapter4/第四章%20大语言模型.md)         | 什么是 LLM、如何训练一个 LLM                                 |
+| [第五章 动手搭建大模型](./docs/chapter5/第五章%20动手搭建大模型.md)     | 动手实现一个 LLaMA2 大模型、训练 Tokenizer、预训练一个小型LLM |
+| [第六章 大模型训练实践流程](./docs/chapter6/第六章%20大模型训练流程实践.md) | 模型预训练、模型有监督微调、高效微调                         |
+| [第七章 大模型应用](./docs/chapter7/第七章%20大模型应用.md)         | LLM 的评测、RAG、Agent                                       |
 
-- 4.1 什么是 LLM
-  - 4.1.1 LLM 的定义
-  - 4.1.2 LLM 的能力
-  - 4.1.3 LLM 的特点
-- 4.2 如何训练一个 LLM
-  - 4.2.2 Pretrain
-  - 4.2.3 SFT
-  - 4.2.4 RLHF
+## 致谢
 
-### 第五章 动手搭建大模型
+### 核心贡献者
 
-- 5.1 动手实现一个 LLaMA2 大模型
-  - 5.1.1 定义超参数
-  - 5.1.2 构建 RMSNorm
-  - 5.1.3 构建 LLaMA2 Attention
-    - 5.1.3.1 repeat_kv
-    - 5.1.3.2 旋转嵌入
-    - 5.1.3.3 组装 LLaMA2 Attention
-  - 5.1.4 构建 LLaMA2 MLP模块
-  - 5.1.5 LLaMA2 Decoder Layer
-  - 5.1.6 构建 LLaMA2 模型
-- 5.2 训练 Tokenizer
-  - 5.3.1 Word-based Tokenizer
-  - 5.2.2 Character-based Tokenizer
-  - 5.2.3 Subword Tokenizer
-  - 5.2.4 训练一个 Tokenizer
-- 5.3 预训练一个小型LLM
-  - 5.3.0 数据下载
-- 1 处理预训练数据
-- 2 处理SFT数据
-  - 5.3.1 训练Tokenize
-  - 5.3.2 Dataset
-  - 5.3.3 预训练
-  - 5.3.4 SFT 训练
-  - 5.3.4 使用模型生成文本
+- [宋志学-项目负责人](https://github.com/KMnO4-zx)(Datawhale成员-中国矿业大学(北京))
+- [邹雨衡-项目负责人](https://github.com/logan-zou)(Datawhale成员-对外经济贸易大学)
 
-### 第六章 大模型训练流程实践
+### 其他
 
-- 6.1 模型预训练
-  - 6.1.1 框架介绍
-  - 6.1.2 初始化 LLM
-  - 6.1.3 预训练数据处理
-  - 6.1.4 使用 Trainer 进行训练
-  - 6.1.5 使用 DeepSpeed 实现分布式训练
-- 6.2 模型有监督微调
-  - 6.2.1 Pretrain VS SFT
-  - 6.2.2 微调数据处理
-- 6.3 高效微调
-  - 6.3.1 高效微调方案
-  - 6.3.2 LoRA 微调
-  - 6.3.3 LoRA 微调的原理
-  - 6.3.4 LoRA 的代码实现
-  - 6.3.5 使用 peft 实现 LoRA 微调
+- 特别感谢[@Sm1les](https://github.com/Sm1les)对本项目的帮助与支持
+- 如果有任何想法可以联系我们 DataWhale 也欢迎大家多多提出 issue
+- 特别感谢以下为教程做出贡献的同学！
 
-### 第七章 大模型应用
+<div align=center style="margin-top: 30px;">
+  <a href="https://github.com/datawhalechina/happy-llm/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=datawhalechina/happy-llm" />
+  </a>
+</div>
 
-- 7.1 LLM 的评测
-  - 7.1.1 LLM 的评测数据集
-  - 7.1.2 主流的评测榜单
-  - 7.1.3 特定的评测榜单
-- 7.2 RAG
-  - 7.2.1 RAG 的基本原理
-  - 7.2.2 搭建一个 RAG 框架
-- 7.3 Agent
-  - 7.3.1 什么是 LLM Agent？
-  - 7.3.2 LLM Agent 的类型
-  - 7.3.3 动手构造一个 Tiny-Agent
+## 关于我们
+
+扫描下方二维码关注公众号：Datawhale，获取更多开源项目和最新资讯！
+
+<div align='center'>
+    <img src="./images/datawhale.png" alt="alt text" width="30%">
+</div>
