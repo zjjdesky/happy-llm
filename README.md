@@ -12,7 +12,7 @@
 | ------------------------- | ------------------------------------------------------------ |
 | [第一章 NLP 基础概念](./docs/chapter1/第一章%20NLP基础概念.md)   | 什么是 NLP、NLP 发展历程、NLP 任务、文本表示的发展历程       |
 | [第二章 Transformer 架构](./docs/chapter2/第二章%20Transformer架构.md)   | 注意力机制、Encoder-Decoder、搭建一个 Transformer            |
-| 第[三章 预训练语言模型](./docs/chapter3/第三章%20预训练语言模型.md)     | Encoder-only PLM、Encoder-Decoder PLM、Decoder-Only PLM      |
+| [第三章 预训练语言模型](./docs/chapter3/第三章%20预训练语言模型.md)     | Encoder-only PLM、Encoder-Decoder PLM、Decoder-Only PLM      |
 | [第四章 大语言模型](./docs/chapter4/第四章%20大语言模型.md)         | 什么是 LLM、如何训练一个 LLM                                 |
 | [第五章 动手搭建大模型](./docs/chapter5/第五章%20动手搭建大模型.md)     | 动手实现一个 LLaMA2 大模型、训练 Tokenizer、预训练一个小型LLM |
 | [第六章 大模型训练实践流程](./docs/chapter6/第六章%20大模型训练流程实践.md) | 模型预训练、模型有监督微调、高效微调                         |
