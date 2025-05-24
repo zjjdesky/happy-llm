@@ -1,8 +1,9 @@
-- 第1章 [我是第1章的标题](chapter1/chapter1)
-- 第2章 我是第2章的标题
-    - [2.1 我是2.1的标题](chapter2/chapter2_1)
-    - [2.2 我是2.2的标题](chapter2/chapter2_2)
-- 第3章 我是第3章的标题
-    - 3.1 我是3.1的标题
-        - 3.1.1 [我是3.1.1的标题](chapter3/chapter3_1/chapter3_1_1)
-        - 3.1.2 [我是3.1.2的标题](chapter3/chapter3_1/chapter3_1_2)
+- [Happy-LLM](./README.md)
+  - [前言](./前言.md)
+  - [第一章 NLP 基础概念](./chapter1/第一章%20NLP基础概念.md)
+  - [第二章 Transformer 架构](./chapter2/第二章%20Transformer架构.md)
+  - [第三章 预训练语言模型](./chapter3/第三章%20预训练语言模型.md)
+  - [第四章 大语言模型](./chapter4/第四章%20大语言模型.md) 
+  - [第五章 动手搭建大模型](./chapter5/第五章%20动手搭建大模型.md)
+  - [第六章 大模型训练实践](./chapter6/第六章%20大模型训练流程实践.md)
+  - [第七章 大模型应用](./chapter7/第七章%20大模型应用.md)
