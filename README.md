@@ -1,5 +1,5 @@
 <div align='center'>
-    <img src="./images/head.jpg" alt="alt text" width="70%">
+    <img src="./images/head.jpg" alt="alt text" width="100%">
     <h1>Happy-LLM</h1>
 </div>
 
