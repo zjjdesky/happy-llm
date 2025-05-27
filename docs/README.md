@@ -6,7 +6,6 @@
 <div align="center">
   <img src="https://img.shields.io/github/stars/datawhalechina/happy-llm?style=for-the-badge&logo=github" alt="GitHub stars"/>
   <img src="https://img.shields.io/github/forks/datawhalechina/happy-llm?style=for-the-badge&logo=github" alt="GitHub forks"/>
-  <img src="https://img.shields.io/github/license/datawhalechina/happy-llm?style=for-the-badge" alt="License"/>
   <img src="https://img.shields.io/badge/language-Chinese-brightgreen?style=for-the-badge" alt="Language"/>
 </div>
 
