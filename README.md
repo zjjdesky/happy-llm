@@ -76,7 +76,7 @@
 
 <div align=center style="margin-top: 30px;">
   <a href="https://github.com/datawhalechina/happy-llm/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=datawhalechina/self-llm" />
+    <img src="https://contrib.rocks/image?repo=datawhalechina/happy-llm" />
   </a>
 </div>
 
