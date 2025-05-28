@@ -9,7 +9,7 @@
 - 前馈神经网络（Feedforward Neural Network，FNN），即每一层的神经元都和上下两层的每一个神经元完全连接，如图2.1所示:
 
 <div align="center">
-  <img src="../images/2-figures/1-0.png" alt="图片描述" width="90%"/>
+  <img src="https://github.com/datawhalechina/happy-llm/blob/main/docs/images/2-figures/1-0.png" alt="图片描述" width="90%"/>
   <p>图2.1 前馈神经网络</p>
 </div>
 
