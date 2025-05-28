@@ -13,8 +13,6 @@
   <p>图2.1 前馈神经网络</p>
 </div>
 
-![](../images/2-figures/1-0.png)
-
 - 卷积神经网络（Convolutional Neural Network，CNN），即训练参数量远小于前馈神经网络的卷积层来进行特征提取和学习，如图2.2所示:
 
 <div align="center">
