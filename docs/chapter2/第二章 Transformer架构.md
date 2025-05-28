@@ -9,9 +9,11 @@
 - 前馈神经网络（Feedforward Neural Network，FNN），即每一层的神经元都和上下两层的每一个神经元完全连接，如图2.1所示:
 
 <div align="center">
-  <img src="https://github.com/datawhalechina/happy-llm/blob/main/docs/images/2-figures/1-0.png" alt="图片描述" width="90%"/>
+  <img src="../images/2-figures/1-0.png" alt="图片描述" width="90%"/>
   <p>图2.1 前馈神经网络</p>
 </div>
+
+![](../images/2-figures/1-0.png)
 
 - 卷积神经网络（Convolutional Neural Network，CNN），即训练参数量远小于前馈神经网络的卷积层来进行特征提取和学习，如图2.2所示:
 
