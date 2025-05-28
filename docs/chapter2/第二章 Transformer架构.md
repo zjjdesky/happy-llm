@@ -8,26 +8,16 @@
 
 - 前馈神经网络（Feedforward Neural Network，FNN），即每一层的神经元都和上下两层的每一个神经元完全连接，如图2.1所示:
 
-<div align="center">
-  <img src="../images/2-figures/1-0.png" alt="图片描述" width="90%"/>
-  <p>图2.1 前馈神经网络</p>
-</div>
-
-![](../images/2-figures/1-0.png)
+![图2.1 前馈神经网络](../images/2-figures/1-0.png)
 
 - 卷积神经网络（Convolutional Neural Network，CNN），即训练参数量远小于前馈神经网络的卷积层来进行特征提取和学习，如图2.2所示:
 
-<div align="center">
-  <img src="../images/2-figures/1-1.png" alt="图片描述" width="90%"/>
-  <p>图2.2 卷积神经网络</p>
-</div>
+![图2.2 卷积神经网络](../images/2-figures/1-1.png)
 
 - 循环神经网络（Recurrent Neural Network，RNN），能够使用历史信息作为输入、包含环和自重复的网络，如图2.3所示:
 
-<div align="center">
-  <img src="../images/2-figures/1-2.png" alt="图片描述" width="90%"/>
-  <p>图2.3 循环神经网络</p>
-</div>
+![图2.3 循环神经网络](../images/2-figures/1-2.png)
+
 
 由于 NLP 任务所需要处理的文本往往是序列，因此专用于处理序列、时序数据的 RNN 往往能够在 NLP 任务上取得最优的效果。事实上，在注意力机制横空出世之前，RNN 以及 RNN 的衍生架构 LSTM 是 NLP 领域当之无愧的霸主。例如，我们在第一章讲到过的开创了预训练思想的文本表示模型 ELMo，就是使用的双向 LSTM 作为网络架构。
 
@@ -223,10 +213,7 @@ scores = F.softmax(scores.float(), dim=-1).type_as(xq)
 
 在原论文中，作者也通过实验证实，多头注意力计算中，每个不同的注意力头能够拟合语句中的不同信息，如图2.4所示：
 
-<div align="center">
-  <img src="../images/2-figures/1-3.jpeg" alt="图片描述" width="90%"/>
-  <p>图2.4 多头注意力机制</p>
-</div>
+![图2.4 多头注意力机制](../images/2-figures/1-3.jpeg)
 
 ​上层与下层分别是两个注意力头对同一段语句序列进行自注意力计算的结果，可以看到，对于不同的注意力头，能够拟合不同层次的相关信息。通过多个注意力头同时计算，能够更全面地拟合语句关系。
 
@@ -347,10 +334,8 @@ Seq2Seq，即序列到序列，是一种经典 NLP 任务。具体而言，是�
 
 Transformer 中的 Encoder，就是用于上述的编码过程；Decoder 则用于上述的解码过程。Transformer 结构，如图2.5所示：
 
-<div align="center">
-  <img src="../images/2-figures/2-0.jpg" alt="图片描述" width="90%"/>
-  <p>图2.5 编码器-解码器结构</p>
-</div>
+![图2.5 编码器-解码器结构](../images/2-figures/2-0.jpg)
+
 
 Transformer 由 Encoder 和 Decoder 组成，每一个 Encoder（Decoder）又由 6个 Encoder（Decoder）Layer 组成。输入源序列会进入 Encoder 进行编码，到 Encoder Layer 的最顶层再将编码结果输出给 Decoder Layer 的每一层，通过 Decoder 解码后就可以得到输出目标序列了。
 
@@ -733,11 +718,7 @@ $$
 
 上述​编码结果，如图2.6所示：
 
-<div align="center">
-  <img src="../images/2-figures/3-0.png" alt="图片描述" width="90%"/>
-  <p>图2.6 编码结果</p>
-</div>
-
+![图2.6 编码结果](../images/2-figures/3-0.png)
 
 基于上述原理，我们实现一个​位置编码层：
 
@@ -774,10 +755,8 @@ class PositionalEncoding(nn.Module):
 
 上述所有组件，再按照下图的 Tranfromer 结构拼接起来就是一个完整的 Transformer 模型了，如图2.7所示：
 
-<div align="center">
-  <img src="../images/2-figures/3-1.png" alt="图片描述" width="80%"/>
-  <p>图2.7 Transformer 模型结构</p>
-</div>
+![图2.7 Transformer 模型结构](../images/2-figures/3-1.png)
+
 
 如图，经过 tokenizer 映射后的输出先经过 Embedding 层和 Positional Embedding 层编码，然后进入上一节讲过的 N 个 Encoder 和 N 个 Decoder（在 Transformer 原模型中，N 取为6），最后经过一个线性层和一个 Softmax 层就得到了最终输出。
 
