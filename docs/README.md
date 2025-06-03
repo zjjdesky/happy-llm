@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/0bf8cc9c-c898-4904-a375-e27e73ec492d)<div align='center'>
+<div align='center'>
     <img src="./images/head.jpg" alt="alt text" width="100%">
     <h1>Happy-LLM</h1>
 </div>
