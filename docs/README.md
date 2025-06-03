@@ -1,4 +1,4 @@
-<div align='center'>
+![image](https://github.com/user-attachments/assets/0bf8cc9c-c898-4904-a375-e27e73ec492d)<div align='center'>
     <img src="./images/head.jpg" alt="alt text" width="100%">
     <h1>Happy-LLM</h1>
 </div>
@@ -68,6 +68,8 @@
 ### 核心贡献者
 - [宋志学-项目负责人](https://github.com/KMnO4-zx) (Datawhale成员-中国矿业大学(北京))
 - [邹雨衡-项目负责人](https://github.com/logan-zou) (Datawhale成员-对外经济贸易大学)
+- [朱信忠-指导专家](https://xinzhongzhu.github.io/)（浙江省特聘专家，浙江师范大学计算机科学与技术学院（人工智能学院）教授）
+
 
 ### 特别感谢
 - 感谢 [@Sm1les](https://github.com/Sm1les) 对本项目的帮助与支持
