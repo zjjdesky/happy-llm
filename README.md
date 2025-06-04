@@ -10,6 +10,12 @@
 </div>
 
 <div align="center">
+
+[中文](./README.md) | [English](./README_en.md)
+
+</div>
+
+<div align="center">
   <h3>📚 从零开始的大语言模型原理与实践教程</h3>
   <p><em>深入理解 LLM 核心原理，动手实现你的第一个大模型</em></p>
 </div>
