@@ -81,15 +81,6 @@
   </a>
 </div>
 
-## 关于 Datawhale
-
-<div align='center'>
-    <img src="./images/datawhale.png" alt="Datawhale" width="30%">
-    <p>扫描二维码关注 Datawhale 公众号，获取更多优质开源内容</p>
-</div>
-
----
-
 ## Star History
 
 <div align='center'>
@@ -99,6 +90,15 @@
 <div align="center">
   <p>⭐ 如果这个项目对你有帮助，请给我们一个 Star！</p>
 </div>
+
+## 关于 Datawhale
+
+<div align='center'>
+    <img src="./images/datawhale.png" alt="Datawhale" width="30%">
+    <p>扫描二维码关注 Datawhale 公众号，获取更多优质开源内容</p>
+</div>
+
+---
 
 ## 📜 开源协议
 
