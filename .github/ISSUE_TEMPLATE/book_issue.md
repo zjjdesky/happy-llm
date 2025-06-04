@@ -1,3 +1,4 @@
+---
 name: Happy-LLM 问题反馈 / Textbook Issue Report
 description: 报告 Happy-LLM 中的代码/内容问题 / Report code/content issues in textbook
 title: "[问题/Issue] 章节X.X：简短问题描述 / ChapterX.X: Brief description"
@@ -64,3 +65,4 @@ body:
       options:
         - label: 此问题未在过往Issue中被报告过 / This issue hasn't been reported before
           required: true
+---
