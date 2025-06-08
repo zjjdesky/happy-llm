@@ -10,6 +10,12 @@
 </div>
 
 <div align="center">
+
+[中文](./README.md) | [English](./README_en.md)
+
+</div>
+
+<div align="center">
   <h3>📚 从零开始的大语言模型原理与实践教程</h3>
   <p><em>深入理解 LLM 核心原理，动手实现你的第一个大模型</em></p>
 </div>
@@ -18,12 +24,13 @@
 
 ## 🎯 项目介绍
 
-> &emsp;&emsp;*很多小伙伴在看完 [self-llm 开源大模型食用指南](https://github.com/datawhalechina/self-llm) 后，感觉意犹未尽，想要深入了解大语言模型的原理和训练过程。于是我们决定推出《Happy-LLM》项目，旨在帮助大家深入理解大语言模型的原理和训练过程。*
+> &emsp;&emsp;*很多小伙伴在看完 Datawhale开源项目： [self-llm 开源大模型食用指南](https://github.com/datawhalechina/self-llm) 后，感觉意犹未尽，想要深入了解大语言模型的原理和训练过程。于是我们（Datawhale）决定推出《Happy-LLM》项目，旨在帮助大家深入理解大语言模型的原理和训练过程。*
 
 &emsp;&emsp;本项目是一个**系统性的 LLM 学习教程**，将从 NLP 的基本研究方法出发，根据 LLM 的思路及原理逐层深入，依次为读者剖析 LLM 的架构基础和训练过程。同时，我们会结合目前 LLM 领域最主流的代码框架，演练如何亲手搭建、训练一个 LLM，期以实现授之以鱼，更授之以渔。希望大家能从这本书开始走入 LLM 的浩瀚世界，探索 LLM 的无尽可能。
 
 ### ✨ 你将收获什么？
 
+- 📚 **Datawhale 开源免费** 完全免费的学习本项目所有内容
 - 🔍 **深入理解** Transformer 架构和注意力机制
 - 📚 **掌握** 预训练语言模型的基本原理
 - 🧠 **了解** 现有大模型的基本结构
@@ -35,14 +42,14 @@
 
 | 章节 | 关键内容 | 状态 |
 | --- | --- | --- |
-| [前言](./前言.md) | 本项目的缘起、背景及读者建议 | ✅ |
-| [第一章 NLP 基础概念](chapter1/第一章%20NLP基础概念.md) | 什么是 NLP、发展历程、任务分类、文本表示演进 | ✅ |
-| [第二章 Transformer 架构](chapter2/第二章%20Transformer架构.md) | 注意力机制、Encoder-Decoder、手把手搭建 Transformer | ✅ |
-| [第三章 预训练语言模型](chapter3/第三章%20预训练语言模型.md) | Encoder-only、Encoder-Decoder、Decoder-Only 模型对比 | ✅ |
-| [第四章 大语言模型](chapter4/第四章%20大语言模型.md) | LLM 定义、训练策略、涌现能力分析 | ✅ |
-| [第五章 动手搭建大模型](chapter5/第五章%20动手搭建大模型.md) | 实现 LLaMA2、训练 Tokenizer、预训练小型 LLM | ✅ |
-| [第六章 大模型训练实践](chapter6/第六章%20大模型训练流程实践.md) | 预训练、有监督微调、LoRA/QLoRA 高效微调 | ✅ |
-| [第七章 大模型应用](chapter7/第七章%20大模型应用.md) | 模型评测、RAG 检索增强、Agent 智能体 | ✅ |
+| [前言](./docs/README.md) | 本项目的缘起、背景及读者建议 | ✅ |
+| [第一章 NLP 基础概念](./docs/chapter1/第一章%20NLP基础概念.md) | 什么是 NLP、发展历程、任务分类、文本表示演进 | ✅ |
+| [第二章 Transformer 架构](./docs/chapter2/第二章%20Transformer架构.md) | 注意力机制、Encoder-Decoder、手把手搭建 Transformer | ✅ |
+| [第三章 预训练语言模型](./docs/chapter3/第三章%20预训练语言模型.md) | Encoder-only、Encoder-Decoder、Decoder-Only 模型对比 | ✅ |
+| [第四章 大语言模型](./docs/chapter4/第四章%20大语言模型.md) | LLM 定义、训练策略、涌现能力分析 | ✅ |
+| [第五章 动手搭建大模型](./docs/chapter5/第五章%20动手搭建大模型.md) | 实现 LLaMA2、训练 Tokenizer、预训练小型 LLM | ✅ |
+| [第六章 大模型训练实践](./docs/chapter6/第六章%20大模型训练流程实践.md) | 预训练、有监督微调、LoRA/QLoRA 高效微调 | ✅ |
+| [第七章 大模型应用](./docs/chapter7/第七章%20大模型应用.md) | 模型评测、RAG 检索增强、Agent 智能体 | ✅ |
 
 ## 💡 如何学习
 
@@ -68,6 +75,7 @@
 ### 核心贡献者
 - [宋志学-项目负责人](https://github.com/KMnO4-zx) (Datawhale成员-中国矿业大学(北京))
 - [邹雨衡-项目负责人](https://github.com/logan-zou) (Datawhale成员-对外经济贸易大学)
+- [朱信忠-指导专家](https://xinzhongzhu.github.io/)（Datawhale首席科学家-浙江师范大学杭州人工智能研究院教授）
 
 ### 特别感谢
 - 感谢 [@Sm1les](https://github.com/Sm1les) 对本项目的帮助与支持
@@ -79,6 +87,16 @@
   </a>
 </div>
 
+## Star History
+
+<div align='center'>
+    <img src="./images/star-history-202566.png" alt="Datawhale" width="90%">
+</div>
+
+<div align="center">
+  <p>⭐ 如果这个项目对你有帮助，请给我们一个 Star！</p>
+</div>
+
 ## 关于 Datawhale
 
 <div align='center'>
@@ -87,10 +105,6 @@
 </div>
 
 ---
-
-<div align="center">
-  <p>⭐ 如果这个项目对你有帮助，请给我们一个 Star！</p>
-</div>
 
 ## 📜 开源协议
 
