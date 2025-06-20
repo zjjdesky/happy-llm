@@ -48,7 +48,7 @@
 | [Chapter 3: Pre-trained Language Models](./docs/chapter3/第三章%20预训练语言模型.md) | Comparison of Encoder-only, Encoder-Decoder, Decoder-Only models | ✅ |
 | [Chapter 4: Large Language Models](./docs/chapter4/第四章%20大语言模型.md) | LLM definition, training strategies, emergent ability analysis | ✅ |
 | [Chapter 5: Building Large Models from Scratch](./docs/chapter5/第五章%20动手搭建大模型.md) | Implementing LLaMA2, training Tokenizer, pre-training small LLM | ✅ |
-| [Chapter 6: Large Model Training Practice](./docs/chapter6/第六章%20大模型训练流程实践.md) | Pre-training, supervised fine-tuning, LoRA/QLoRA efficient fine-tuning | ✅ |
+| [Chapter 6: Large Model Training Practice](./docs/chapter6/第六章%20大模型训练流程实践.md) | Pre-training, supervised fine-tuning, LoRA/QLoRA efficient fine-tuning | 🚧 |
 | [Chapter 7: Large Model Applications](./docs/chapter7/第七章%20大模型应用.md) | Model evaluation, RAG retrieval enhancement, Agent intelligent agents | ✅ |
 
 ## 💡 How to Learn
