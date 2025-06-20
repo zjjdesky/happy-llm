@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 '''
 @File    :   utils.py
-@Time    :   2024/02/11 09:52:26
+@Time    :   2025/06/20 13:50:47
 @Author  :   不要葱姜蒜
-@Version :   1.0
+@Version :   1.1
 @Desc    :   None
 '''
 
@@ -13,7 +13,6 @@ from typing import Dict, List, Optional, Tuple, Union
 
 import PyPDF2
 import markdown
-import html2text
 import json
 from tqdm import tqdm
 import tiktoken
