@@ -4,9 +4,11 @@
 </div>
 
 <div align="center">
-  <img src="https://img.shields.io/github/stars/datawhalechina/happy-llm?style=for-the-badge&logo=github" alt="GitHub stars"/>
-  <img src="https://img.shields.io/github/forks/datawhalechina/happy-llm?style=for-the-badge&logo=github" alt="GitHub forks"/>
-  <img src="https://img.shields.io/badge/language-Chinese-brightgreen?style=for-the-badge" alt="Language"/>
+  <img src="https://img.shields.io/github/stars/datawhalechina/happy-llm?style=flat&logo=github" alt="GitHub stars"/>
+  <img src="https://img.shields.io/github/forks/datawhalechina/happy-llm?style=flat&logo=github" alt="GitHub forks"/>
+  <img src="https://img.shields.io/badge/language-Chinese-brightgreen?style=flat" alt="Language"/>
+  <a href="https://github.com/datawhalechina/happy-llm"><img src="https://img.shields.io/badge/GitHub-Project-blue?style=flat&logo=github" alt="GitHub Project"></a>
+  <a href="https://swanlab.cn/@kmno4/Happy-LLM/overview"><img src="https://raw.githubusercontent.com/SwanHubX/assets/main/badge1.svg" alt="SwanLab"></a>
 </div>
 
 <div align="center">
