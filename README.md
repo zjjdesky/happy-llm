@@ -54,6 +54,16 @@
 | [第六章 大模型训练实践](./docs/chapter6/第六章%20大模型训练流程实践.md) | 预训练、有监督微调、LoRA/QLoRA 高效微调 | 🚧 |
 | [第七章 大模型应用](./docs/chapter7/第七章%20大模型应用.md) | 模型评测、RAG 检索增强、Agent 智能体 | ✅ |
 
+### 模型下载
+
+| 模型名称 | 下载地址 |
+| --- | --- |
+| Happy-LLM-Chapter5-Base-215M | [🤖 ModelScope](https://www.modelscope.cn/models/kmno4zx/happy-llm-215M-base) |
+| Happy-LLM-Chapter5-SFT-215M | [🤖 ModelScope](https://www.modelscope.cn/models/kmno4zx/happy-llm-215M-sft) |
+
+> *ModelScope 创空间体验地址：[🤖 创空间](https://www.modelscope.cn/studios/kmno4zx/happy_llm_215M_sft)*
+
+
 ### PDF 版本下载
 
 &emsp;&emsp;***本 Happy-LLM PDF 教程完全开源免费。为防止各类营销号加水印后贩卖给大模型初学者，我们特地在 PDF 文件中预先添加了不影响阅读的 Datawhale 开源标志水印，敬请谅解～***
