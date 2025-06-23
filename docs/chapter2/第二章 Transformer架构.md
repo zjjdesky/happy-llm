@@ -590,7 +590,7 @@ output: 2
 因此，Embedding 层的输入往往是一个形状为 （batch_size，seq_len，1）的矩阵，第一个维度是一次批处理的数量，第二个维度是自然语言序列的长度，第三个维度则是 token 经过 tokenizer 转化成的 index 值。例如，对上述输入，Embedding 层的输入会是：
 
 ```
-[[0,1,2]]
+[[[0],[1],[2]]]
 ```
 
 其 batch_size 为1，seq_len 为3，转化出来的 index 如上。
