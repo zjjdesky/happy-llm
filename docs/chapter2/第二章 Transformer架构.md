@@ -540,7 +540,7 @@ class DecoderLayer(nn.Module):
         norm_x = self.attention_norm_2(x)
         h = x + self.attention.forward(norm_x, enc_out, enc_out)
         # 经过前馈神经网络
-        out = h + self.feed_forward.forward(self.fnn_norm(h))
+        out = h + self.feed_forward.forward(self.ffn_norm(h))
         return out
 ```
 
