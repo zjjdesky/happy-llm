@@ -96,7 +96,7 @@ def main():
     model_args, data_args, training_args = parser.parse_args_into_dataclasses()
 
     # 初始化 SwanLab
-    swanlab.init(project="pretrain", name="from_scrach")
+    swanlab.init(project="pretrain", experiment_name="from_scrach")
     
     # 设置日志
     logging.basicConfig(
