@@ -9,6 +9,9 @@
   <img src="https://img.shields.io/badge/language-Chinese-brightgreen?style=flat" alt="Language"/>
   <a href="https://github.com/datawhalechina/happy-llm"><img src="https://img.shields.io/badge/GitHub-Project-blue?style=flat&logo=github" alt="GitHub Project"></a>
   <a href="https://swanlab.cn/@kmno4/Happy-LLM/overview"><img src="https://raw.githubusercontent.com/SwanHubX/assets/main/badge1.svg" alt="SwanLab"></a>
+</div>
+
+<div align="center">
   <a href="https://trendshift.io/repositories/14175" target="_blank"><img src="https://trendshift.io/api/badge/repositories/14175" alt="datawhalechina%2Fhappy-llm | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 </div>
 
