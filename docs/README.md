@@ -12,6 +12,10 @@
 </div>
 
 <div align="center">
+  <a href="https://trendshift.io/repositories/14175" target="_blank"><img src="https://trendshift.io/api/badge/repositories/14175" alt="datawhalechina%2Fhappy-llm | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+</div>
+
+<div align="center">
   <h3>📚 从零开始的大语言模型原理与实践教程</h3>
   <p><em>深入理解 LLM 核心原理，动手实现你的第一个大模型</em></p>
 </div>
@@ -102,7 +106,7 @@
 ## Star History
 
 <div align='center'>
-    <img src="./images/star-history-2025624.png" alt="Datawhale" width="90%">
+    <img src="./images/star-history-202575.png" alt="Datawhale" width="90%">
 </div>
 
 <div align="center">
